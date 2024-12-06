@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 //main class
-public class MyClass {
+class MyClass {
     // the main method with static contents and returns no value
     public static void main(String args[]) {
         //create the scanner object

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Stringing{
+class Stringing{
     public static void main(String arg[]) {
     //create a Scanner object
     Scanner scanner = new Scanner(System.in);

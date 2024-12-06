@@ -1,4 +1,4 @@
-public class MyClass {
+class MyClasses {
     public static void main(String arg[]) {
         int a = 5;
         int b = a++; //post increament
