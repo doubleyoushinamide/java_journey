@@ -2,7 +2,8 @@
 import java.util.Scanner;
  
 public class Exercise {
-    public void tradeProfitCalculator() {
+    public static void tradeProfitCalculator() {
+
         // Create a scanner object to take user input
         Scanner scanner = new Scanner(System.in);
  
