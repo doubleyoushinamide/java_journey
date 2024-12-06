@@ -53,6 +53,6 @@ If you have ideas, suggestions, or resources that can enhance this journey, feel
 ---
 
 ### Connect With Me
-- **LinkedIn**: [https://www.linkedin.com/in/shina-salau-a853b9111/](#)
+- **LinkedIn**: [Shina Salau](https://www.linkedin.com/in/shina-salau-a853b9111/)
 
 ---
