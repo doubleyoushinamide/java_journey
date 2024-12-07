@@ -35,6 +35,24 @@ public class ExerciseTwo {
         System.out.printf("\nTotal Expense: $%.2f", totalExpense);
         double remainingBalance = (monthlyIncome - totalExpense);
         System.out.printf("\nRemaining Balance: $%.2f", remainingBalance);
+        //outerLoop:
+        if (remainingBalance < 0) {
+            System.out.println("\nSorry! you have Exceeded your monthy Income\nKindly cut down your costs");
+        }
+        else {
+            System.out.printf("\nDo you wish to save your $%.2f balance?\nPress 1 for YES and 0 for No.", remainingBalance);
+            int replySavings = scanner.nextInt();
+            if (replySavings == 1) {
+                System.out.printf("Congratulations! $%.2f has been saved!", remainingBalance);
+            }
+            else if (replySavings == 0) {
+                System.out.println("Spend your balance Wisely!");
+            }
+            else {
+                System.out.println("You've Entered the wrong Input!");
+                //break outerLoop;
+            }
+        }
 
         scanner.close();
     }
