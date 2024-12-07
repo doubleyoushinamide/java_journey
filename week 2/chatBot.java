@@ -33,10 +33,10 @@ public class chatBot {
         }
 
         // If the user's input doesn't match any of the predefined options, respond with a default message
-        /*else {
+        else {
             System.out.println("I don't Understand you!");
-        }*/
-
+        }
+/*
         // If the user's input doesn't match any of the predefined options, respond with a default message
         if (!userInput.equalsIgnoreCase("hello") && !userInput.equalsIgnoreCase("hi") &&
                 !userInput.equalsIgnoreCase("how are you") && !userInput.equalsIgnoreCase("how's it going") &&
@@ -44,7 +44,7 @@ public class chatBot {
                 !userInput.equalsIgnoreCase("bye") && !userInput.equalsIgnoreCase("goodbye")) {
             System.out.println("Chatbot: I'm sorry, I don't understand that.");
         }
-
+*/
         // Close the Scanner object to free up resources
         scanner.close();
     }
