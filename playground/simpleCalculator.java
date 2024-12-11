@@ -49,6 +49,8 @@ public class simpleCalculator {
                         } else {
                             System.out.println("Invalid second number. Kindly input a non zero value");
                         }
+                    default:
+                        System.out.println("Invalid operator. Use only +, -, *, or / alone");
 
                 }
                 // Ask the user if they want to perform another calculation
