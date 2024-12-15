@@ -1,7 +1,7 @@
 // Import necessary Java packages
 import java.util.Random;
 
-public class exercise {
+public class ExerciseThree { // Renamed class to match the file name
 
     public void spaceTravelSimulator() {
         // Declare and initialize a 2D array representing sectors in space
@@ -76,7 +76,7 @@ public class exercise {
 
     // Main method to run the simulation
     public static void main(String[] args) {
-        exercise exercise = new exercise();
+        ExerciseThree exercise = new ExerciseThree(); // Updated class instantiation
         exercise.spaceTravelSimulator();
     }
 }
