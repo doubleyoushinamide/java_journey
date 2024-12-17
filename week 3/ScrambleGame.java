@@ -19,26 +19,41 @@ public static String scrambleString(String input) {
 
 public void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
     //System.out.println("Kindly input a word");
-    String inputRaw = "Mango".toLowerCase();
-    String scrambledWords = scrambleString(inputRaw);
+    String[] inputRaw = {"Delta", "Calabar", "Kwara", "Lagos", "Jigawa", "Auchi", "Anambra", "Rivers", "Imo", "Osun", "Ekiti"};
+    String wordRandomPick = inputRaw[random.nextInt(inputRaw.length)];
+    String scrambledWords = scrambleString(wordRandomPick);
 
     //Guess the word
+    boolean readyToPlay = true;
+    //int playerScore = 0;
 
+    //loop game
+    outer:
     for (int i = 4; i >= 0; i--) {
-        System.out.println("You have " + i + " Chances left");
-        if (i != 0) {
-            System.out.println("Guess this word: " + scrambledWords);
-            String guessed = scanner.next().toLowerCase();
-            if (inputRaw.equalsIgnoreCase(guessed)) {
-                System.out.println("You are Correct!");
-                break;
-            } else
-                System.out.println("Wrong! guess again!");
-        } else {
-            System.out.println("GAME OVER!\tYOU LOST!\tTRY AGAIN!");
-            break;
+        while (readyToPlay) {
+            System.out.println("You have " + i + " Chances left");
+            if (i != 0) {
+                System.out.println("Guess this word: " + scrambledWords);
+                String guessed = scanner.next().toLowerCase();
+                if (wordRandomPick.equalsIgnoreCase(guessed)) {
+                    System.out.println("You are Correct!");
+                    break outer;
+                } else {
+                    System.out.println("Wrong! guess again!");
+                    System.out.println("Are you willing to continue?");
+                    String reply = scanner.next();
+                    if (!reply.equalsIgnoreCase("yes")) {
+                        System.out.println("He who fights and run away lives to fight another day!");
+                        readyToPlay = false;
+                        break;
+                    } else {
+                        System.out.println("GAME OVER!\tYOU LOST!\tTRY AGAIN!");
+                        break outer;
+                }
+            }
         }
+        scanner.close();
     }
-    scanner.close();
-}
+}}
