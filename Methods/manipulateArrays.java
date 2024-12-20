@@ -38,7 +38,7 @@ public class manipulateArrays {
     * */
     public static int binarySearch(int[] array, int start, int end, int target) {
         //base case because I intend to use recursion
-        if (start == end){
+        if (start > end){
             return -1;
         }
         //define the mid-value. Note that mid is an index value of the array
