@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class NewToDoApp {
@@ -7,6 +6,7 @@ public class NewToDoApp {
     public static final ArrayList<Boolean> isCompleted = new ArrayList<>();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); //creating a scanner instance
+        outer://label
         while (true){
             //2. Display the menu for user for every iteration
             try {
@@ -15,27 +15,32 @@ public class NewToDoApp {
                 System.out.println("3. Mark a task as completed");
                 System.out.println("4. Remove a task");
                 System.out.println("5. Exit the application");
-                System.out.print("6. Enter your choice: ");
+                System.out.print("(Enter your choice): ===> ");
                 //3. what the menu should perform
-                int response = scanner.nextInt();
-                scanner.nextLine(); //consumes next line
-                switch (response) {
-                    case 1:
-                        addTask(scanner);
-                        break;
-                    case 2:
-                        viewAllTasks(scanner);
-                        break;
-                    case 3:
-                        markAsCompleted(scanner);
-                        break;
-                    case 4:
-                        removeTask(scanner);
-                    case 5:
-                        exitApp(scanner);
-                        break;
-                    default:
-                        System.out.println("Invalid Selection! (select between options 1-5)");
+                if (scanner.hasNextInt()) {
+                    int response = scanner.nextInt();
+                    scanner.nextLine(); //consumes next line
+                    switch (response) {
+                        case 1:
+                            addTask(scanner);
+                            break;
+                        case 2:
+                            viewAllTasks();
+                            break;
+                        case 3:
+                            markAsCompleted(scanner);
+                            break;
+                        case 4:
+                            removeTask(scanner);
+                        case 5:
+                            exitApp();
+                            break outer;
+                        default:
+                            System.out.println("Invalid Selection! (select between options 1-5)");
+                    }
+                } else {
+                    System.out.println("Invalid Input (select between options 1-5)");
+                    break;
                 }
             } catch (Exception e) {
                 //throw new RuntimeException(e);
@@ -45,17 +50,23 @@ public class NewToDoApp {
         }
 
     }
-    private static void addTask(Scanner scanner) {
+    private static void addTask(Scanner scanner) throws InterruptedException {
         System.out.print("Enter task: ");
         String response = scanner.nextLine();
+        System.out.print("Please wait!");
+        for (int i=0; i < 5; i++) {
+            System.out.print("==");
+            Thread.sleep(1000);
+        }
+        System.out.print("(100%)");
         createdList.add(response);
         isCompleted.add(false);
-        System.out.println("-------------------------");
+        System.out.println("\n-------------------------");
         System.out.println("\t\tTask Added!");
         System.out.println("-------------------------");
     }
 
-    public static void viewAllTasks(Scanner scanner){
+    public static void viewAllTasks(){
         if (createdList.isEmpty()){
             System.out.println("-------------------------");
             System.out.println("Task list is still EMPTY");
@@ -71,29 +82,41 @@ public class NewToDoApp {
             System.out.println("-----------------------------");
         }
     }
-    public static void markAsCompleted(Scanner scanner){
+    public static void markAsCompleted(Scanner scanner) throws InterruptedException {
         System.out.println("Enter the task you've completed");
         int response = scanner.nextInt(); scanner.nextLine();
+        System.out.print("Please wait!");
+        for (int i=0; i < 5; i++) {
+            System.out.print("==");
+            Thread.sleep(1000);
+        }
+        System.out.print("(100%)");
         if (response > 0 && response <= createdList.size() + 1) {
             isCompleted.set(response-1, true);
         } else {
-            System.out.println("-------------------------");
+            System.out.println("\n-------------------------");
             System.out.println("\t\tInvalid Entry!");
             System.out.println("-------------------------");
         }
     }
-    public static void exitApp(Scanner scanner){
+    public static void exitApp(){
         System.out.println("-----------------------------");
         System.out.println("Thank you for using this app");
         System.out.println("-----------------------------");
     }
-    public static void removeTask(Scanner scanner){
+    public static void removeTask(Scanner scanner) throws InterruptedException{
         System.out.print("Enter task: ");
         int response = scanner.nextInt();
+        System.out.print("Please wait!");
+        for (int i=0; i < 5; i++) {
+            System.out.print("==");
+            Thread.sleep(1000);
+        }
+        System.out.print("(100%)");
         if (response > 0 && response < createdList.size()) {
             createdList.remove(response - 1);
             isCompleted.remove(response - 1);
-            System.out.println("-------------------------");
+            System.out.println("\n-------------------------");
             System.out.println("\t\tTask Removed!");
             System.out.println("-------------------------");
         } else {
