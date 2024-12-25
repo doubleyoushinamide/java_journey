@@ -10,7 +10,7 @@ public class NewToDoApp {
         while (true){
             //2. Display the menu for user for every iteration
             try {
-                System.out.println("1. Add a task");
+                System.out.println("\n1. Add a task");
                 System.out.println("2. View all tasks");
                 System.out.println("3. Mark a task as completed");
                 System.out.println("4. Remove a task");
@@ -32,6 +32,7 @@ public class NewToDoApp {
                             break;
                         case 4:
                             removeTask(scanner);
+                            break;
                         case 5:
                             exitApp();
                             break outer;
@@ -76,7 +77,7 @@ public class NewToDoApp {
             System.out.println("-----------------------------");
             for (int i = 0; i < createdList.size(); i++) {
                 String check = isCompleted.get(i) ? "Completed!" : "Incomplete!";
-                System.out.println((i+1) + "." + createdList.get(i) + "  " + "[" + check + "]");
+                System.out.println((i+1) + ". " + createdList.get(i) + "  " + "[" + check + "]");
             }
             System.out.println("-----------------------------");
             System.out.println("-----------------------------");
@@ -100,7 +101,7 @@ public class NewToDoApp {
         }
     }
     public static void exitApp(){
-        System.out.println("-----------------------------");
+        System.out.println("\n-----------------------------");
         System.out.println("Thank you for using this app");
         System.out.println("-----------------------------");
     }
@@ -113,14 +114,14 @@ public class NewToDoApp {
             Thread.sleep(1000);
         }
         System.out.print("(100%)");
-        if (response > 0 && response < createdList.size()) {
+        if (response > 0 && response <= createdList.size()) {
             createdList.remove(response - 1);
             isCompleted.remove(response - 1);
             System.out.println("\n-------------------------");
             System.out.println("\t\tTask Removed!");
             System.out.println("-------------------------");
         } else {
-            System.out.println("-------------------------");
+            System.out.println("\n-------------------------");
             System.out.println("\t\tInvalid Input!");
             System.out.println("-------------------------");
         }
