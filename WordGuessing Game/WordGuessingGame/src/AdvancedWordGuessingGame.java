@@ -24,4 +24,3 @@ class AdvancedWordGuessingGame extends WordGuessingGame {
         System.out.println("Incorrect attempts: " + incorrectAttempts);
     }
 }
-
