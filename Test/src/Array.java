@@ -15,13 +15,27 @@ public class Array{
         }
         arr[count++] = value;
     }
-    public void removeAt(){
-
+    public void removeAt(int index){
+        if (index < 0 || index >= count - 1){
+            throw new IllegalArgumentException("---> Out of bounds");
+        }
+        for (int i = index; i < count; i++) {
+            arr[i] = arr[i + 1];
+        }
+        count--;
     }
+
+    public int findIndex(int value){
+        //.......Linear search algorithm.......
+        for (int i = 0; i < count; i++)
+            if (value == arr[i])
+                return i;
+        return -1;
+    }
+
     public void print(){
         for (int i = 0; i < count; i++) {
             System.out.println(arr[i]);
-            //System.out.print("]");
         }
     }
 }
