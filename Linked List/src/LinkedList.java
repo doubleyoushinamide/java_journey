@@ -8,62 +8,81 @@ public class LinkedList {
         private int value;
         private Node next;
 
-        public Node(int value){
+        public Node(int value) {
             this.value = value;
-
         }
     }
 
-    //addLast
-    public void addLast(int item){
+    // Add item to the end of the list
+    public void addLast(int item) {
         var node = new Node(item);
-        if (isEmpty())
+        if (isEmpty()) {
             first = last = node;
-        else {
+        } else {
             last.next = node;
             last = node;
         }
     }
-    //addFirst
-    public void addFirst(int item){
+
+    public void addFirst(int item) {
         var node = new Node(item);
-        if (isEmpty())
+        if (isEmpty()) {
             first = last = node;
-        first.next = node;
-        first = node;
+        } else {
+            node.next = first;
+            first = node;
+        }
     }
-    //deleteFirst
-    public void deleteFirst(){
+
+    public void deleteFirst() {
         if (isEmpty())
             throw new NoSuchElementException();
-        if (first == last){
+
+        if (first == last) {
             first = last = null;
             return;
         }
-        //[10 -> 20 -> 30]
+
         var second = first.next;
         first.next = null;
         first = second;
     }
-    //deleteLast
-    public void deleteLast(){
-        //[10 -> 20 -> 30]
-        var previous = previous(last);
-        last = previous;
-        last.next = null;
 
+    public void deleteLast() {
+        if (isEmpty())
+            throw new NoSuchElementException();
+
+        if (first == last) {
+            first = last = null;
+            return;
+        }
+
+        var previous = getPrevious(last);
+        if (previous != null) {
+            previous.next = null;
+            last = previous;
+        }
     }
-    private Node previous(Node node){
+
+    private Node getPrevious(Node node) {
         var current = first;
-        while (current != null){
+        while (current != null) {
             if (current.next == node) return current;
             current = current.next;
         }
         return null;
     }
-    //contains
-    //indexOf
-    private boolean isEmpty(){
+
+    private boolean isEmpty() {
         return first == null;
+    }
+
+    public void print() {
+        var current = first;
+        while (current != null) {
+            System.out.print(current.value + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
     }
 }
