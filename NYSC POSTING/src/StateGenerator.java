@@ -52,9 +52,28 @@ public class StateGenerator {
             }
         }
     }
+    //these are states that the candidates has not been to.
+    // Candidate can safely be posted to any of the array items here.
+    public void safeStates(){
+        String[] allSafeStates;
+        if (regionOfOrigin.equals("SOUTH-SOUTH")) {
+            allSafeStates = combineArray(SOUTH_WEST, SOUTH_EAST, NORTH, NORTH_CENTRAL);
+        }
+        else if (regionOfOrigin.equals("SOUTH-EAST")) {
+            allSafeStates = combineArray(SOUTH_WEST, SOUTH_SOUTH, NORTH, NORTH_CENTRAL);
+        }
+    }
+    //the combined array here was deliberately extended for the sake of ease
+    public static String[] combineArray(String[] arr1, String[] arr2, String[] arr3, String[] arr4){
+        int arrSize = arr1.length + arr2.length;
+        String[] result = new String[arrSize];
 
-    public void stateGenerator(){
+        System.arraycopy(arr1, 0, result, 0, arr1.length);
+        System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
+        System.arraycopy(arr3, 0, result, result.length, arr3.length);
+        System.arraycopy(arr4, 0, result, result.length, arr4.length);
 
+        return result;
     }
 
 }
