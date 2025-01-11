@@ -45,7 +45,7 @@ while True:
         print(f"Odd numbers are: {odd_numbers}")
         continue
     elif response == 7:
-        print("Thank you for playing the Number Analyzer game!")
+        print("Exiting the program. Goodbye!")
         break
     else:
         print("Enter a valid input!")
