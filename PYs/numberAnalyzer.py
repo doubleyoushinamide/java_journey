@@ -1,17 +1,3 @@
-'''
-Welcome to the Number Analyzer and Manager!
-
-Enter a list of integers separated by spaces: 10 20 15 30 25 5
-
-Choose an option:
-1. Display all numbers
-2. Find and display the largest number
-3. Find and display the smallest number
-4. Calculate and display the sum of all numbers
-5. Display all even numbers
-6. Display all odd numbers
-7. Exit
-'''
 print("Welcome to the Number Analyzer and Manager!")
 numbers = input("Enter a list of integers separated by spaces: ")
 number_arrays = [int(x) for x in numbers.split()]
