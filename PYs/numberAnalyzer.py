@@ -1,6 +1,10 @@
 print("Welcome to the Number Analyzer and Manager!")
-numbers = input("Enter a list of integers separated by spaces: ")
-number_arrays = [int(x) for x in numbers.split()]
+try:
+    numbers = input("Enter a list of integers separated by spaces: ")
+    number_arrays = [int(x) for x in numbers.split()]
+except ValueError:
+    print("Invalid input. Please enter only integers separated by spaces.")
+    exit()
 
 while True:
     print("Choose an option:")
@@ -11,37 +15,31 @@ while True:
     print("5. Display all even numbers")
     print("6. Display all odd numbers")
     print("7. Exit")
-    response = int(input("Please enter: "))
+    
+    try:
+        response = int(input("Please enter: "))
+    except ValueError:
+        print("Invalid input. Please enter a number between 1 and 7.")
+        continue
     
     if response == 1:
         print(number_arrays)
         continue
     elif response == 2:
-        number_arrays.sort()
-        print(f"Largest number is: {number_arrays[-1]}")
+        print(f"Largest number is: {max(number_arrays)}")
         continue
     elif response == 3:
-        number_arrays.sort()
-        print(f"Smallest Number: {number_arrays[0]}")
+        print(f"Smallest Number: {min(number_arrays)}")
         continue
     elif response == 4:
-        sum_of_numbers = 0
-        for i in number_arrays:
-            sum_of_numbers += i
-        print(f"Sum of numbers: {sum_of_numbers}")
+        print(f"Sum of numbers: {sum(number_arrays)}")
         continue
     elif response == 5:
-        even_numbers = []
-        for i in number_arrays:
-            if i%2 == 0:
-                even_numbers.append(i)
+        even_numbers = [i for i in number_arrays if i % 2 == 0]
         print(f"Even numbers are: {even_numbers}")
         continue
     elif response == 6:
-        odd_numbers = []
-        for i in number_arrays:
-            if i%2 != 0:
-                odd_numbers.append(i)
+        odd_numbers = [i for i in number_arrays if i % 2 != 0]
         print(f"Odd numbers are: {odd_numbers}")
         continue
     elif response == 7:
